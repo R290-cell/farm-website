@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor Farm</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
+</head>
+<body>
+  <header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> VIQENTERPRICE </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <a href="#products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#review">review</a>
+        <a href="#blogs">blogs</a>
+    </nav>
+<div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+    <div class="shopping-cart">
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/cart-img-1.png" alt="">
+            <div class="content">
+                <h3>watermelon</h3>
+                <span class="price">$4.99/-</span>
+                <span class="quantity">qty : 1</span>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/cart-img-2.png" alt="">
+            <div class="content">
+                <h3>onion</h3>
+                <span class="price">$4.99/-</span>
+                <span class="quantity">qty : 1</span>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="image/cart-img-3.png" alt="">
+            <div class="content">
+                <h3>chicken</h3>
+                <span class="price">$4.99/-</span>
+                <span class="quantity">qty : 1</span>
+            </div>
+        </div>
+        <div class="total"> total : $19.69/- </div>
+        <a href="#" class="btn">checkout</a>
+    </div>
+
+    <form action="" class="login-form">
+        <h3>login now</h3>
+        <input type="email" placeholder="your email" class="box">
+        <input type="password" placeholder="your password" class="box">
+        <p>forget your password <a href="#">click here</a></p>
+        <p>don't have an account <a href="#">create now</a></p>
+        <input type="submit" value="login now" class="btn">
+    </form>
+
+</header>
+
+<!-- HOME SECTION -->
+<section class="home" id="home">
+  <div class="content">
+    <h1>Fresh and <span>organic</span> products for you</h1>
+    <p>Eat healthy, live healthy. Directly from the farm to your table.</p>
+    <a href="#products" class="btn">Shop Now</a>
+  </div>
+</section>
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>features</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/feature-img-1.png" alt="">
+            <h3>fresh and organic</h3>
+            <p>Fresh vegetables and fruits in cheap price.</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="image/feature-img-2.png" alt="">
+            <h3>free delivery</h3>
+            <p>We always do fast delivery on our customers.</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+        <div class="box">
+            <img src="image/feature-img-3.png" alt="">
+            <h3>easy payments</h3>
+            <p>It is very easy to pay on our website, you can pay easily.</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+        </section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <h2 class="heading">Our <span>Products</span></h2>
+  <div class="box-container">
+    <div class="box">
+      <img src="image/image.jpg" alt="Tomatoes">
+      <h3>Tomatoes</h3>
+      <div class="price">$4.99</div>
+      <button class="btn add-to-cart" data-name="Tomatoes" data-price="4.99">Add to Cart</button>
+    </div>
+    <div class="box">
+      <img src="image/image1.jpg" alt="Carrots">
+      <h3>Carrots</h3>
+      <div class="price">$3.99</div>
+      <button class="btn add-to-cart" data-name="Carrots" data-price="3.99">Add to Cart</button>
+    </div>
+    <div class="box">
+      <img src="image/image2.jpg" alt="Kales">
+      <h3>Kales</h3>
+      <div class="price">$2.50</div>
+      <button class="btn add-to-cart" data-name="Kales" data-price="2.50">Add to Cart</button>
+    </div>
+     <div class="box">
+      <img src="image/image3.jpg" alt="Mangoes">
+      <h3>Mangoes</h3>
+      <div class="price">$2.50</div>
+      <button class="btn add-to-cart" data-name="Mangoes" data-price="2.50">Add to Cart</button>
+    </div>
+    <div class="box">
+      <img src="image/image4.jpg" alt="Oranges">
+      <h3>Oranges</h3>
+      <div class="price">$2.50</div>
+      <button class="btn add-to-cart" data-name="Oranges" data-price="2.50">Add to Cart</button>
+    </div>
+    <div class="box">
+      <img src="image/image5.jpg" alt="Milk">
+      <h3>Milk</h3>
+      <div class="price">$2.50</div>
+      <button class="btn add-to-cart" data-name="Milk" data-price="2.50">Add to Cart</button>
+    </div>
+     <div class="swiper-slide box">
+                <img src="image/product-2.png" alt="">
+                <h3>fresh onion</h3>
+                <div class="price"> $4.99/- - 10.99/- </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+  </div>
+</section>
+<section class="categories" id="categories">
+
+    <h1 class="heading"> product <span>categories</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/cat-1.png" alt="">
+            <h3>vegitables</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/cat-2.png" alt="">
+            <h3>fresh fruits</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/cat-3.png" alt="">
+            <h3>dairy products</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/cat-4.png" alt="">
+            <h3>fresh meat</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/product-9.png" alt="">
+            <h3>see food</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="image/product-10.jpg" alt="">
+            <h3>Fast Food</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+    </div>
+
+</section>
+<!-- REVIEWS -->
+<section class="review" id="review">
+  <h2 class="heading">Customer <span>Reviews</span></h2>
+  <div class="swiper review-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide review-box">
+        <img src="image/image11.jpg" alt="Joylene">
+        <h3>Joylene Wakesho</h3>
+        <p>Fresh and delicious veggies. Highly recommend!</p>
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+        </div>
+      </div>
+      <div class="swiper-slide review-box">
+        <img src="image/image10.jpg" alt="Victor">
+        <h3>Victor Mwambacha</h3>
+        <p>Excellent service and organic quality!</p>
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        <div class="swiper-slide box">
+                <img src="image/pic-4.png" alt="">
+                <p>Very good website. All the stuff on this website is absolutely great. You all can buy your stuff from here.</p>
+                <h3>Oliveya</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section class="blogs" id="blogs">
+  <h1 class="heading">Our <span>Blogs</span></h1>
+
+  <div class="blog-container">
+    <div class="blog-box">
+      <img src="image/blog1.jpg" alt="Blog1">
+      <div class="content">
+        <h3>Fresh From the Farm</h3>
+        <p>Discover how we grow fresh, organic produce with sustainable farming techniques.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-box">
+      <img src="image/banner-bg.webp" alt="Blog3">
+      <div class="content">
+        <h3>Healthy Recipes</h3>
+        <p>Learn tasty and healthy recipes using our farm-fresh ingredients.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="blog-box">
+      <img src="image/blog2.jpg" alt="Blog2">
+      <div class="content">
+        <h3>Meet Our Farmers</h3>
+        <p>Get to know the passionate people behind your food.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="#home"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="#features"><i class="fas fa-arrow-right"></i> Features</a>
+      <a href="#products"><i class="fas fa-arrow-right"></i> Products</a>
+      <a href="#categories"><i class="fas fa-arrow-right"></i> Categories</a>
+      <a href="#review"><i class="fas fa-arrow-right"></i> Reviews</a>
+      <a href="#blogs"><i class="fas fa-arrow-right"></i> Blogs</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <p><i class="fas fa-phone"></i> +254-732-555-912</p>
+      <p><i class="fas fa-envelope"></i> victormwambacha@hotmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Mombasa, Kenya</p>
+    </div>
+    <div class="box">
+      <h3>Newsletter</h3>
+      <form>
+        <input type="email" placeholder="Your email" class="email" required />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+    </div>
+</footer>
+       <div class="box-container">
+    <div class="box">
+      <section class="cart" id="cart">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
+  <p><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+  <button id="place-order-btn" class="btn">Place Order</button>
+   <div class="credit"> created by <span> Rose Wali Mwambacha </span> | all rights reserved </div>
+
+</section>
+    </div>
+  </div>
+</footer>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+<!-- Cart & Swiper Script -->
+<script>
+  // Swiper slider
+  const swiper = new Swiper('.review-slider', {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    autoplay: { delay: 5000 },
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    },
+  });
+
+  // Cart logic
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function updateCartDisplay() {
+    const cartList = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartList.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+      cartList.appendChild(li);
+      total += item.price * item.quantity;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+  }
+
+  function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+  }
+
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function () {
+      const name = this.getAttribute('data-name');
+      const price = parseFloat(this.getAttribute('data-price'));
+      addToCart(name, price);
+    });
+  });
+
+  // Place order (clear cart)
+  document.getElementById('place-order-btn').addEventListener('click', () => {
+    if (cart.length === 0) return alert("Your cart is empty.");
+    alert("Order placed successfully!");
+    cart = [];
+    localStorage.removeItem('cart');
+    updateCartDisplay();
+  });
+
+  document.addEventListener('DOMContentLoaded', updateCartDisplay);
+</script>
+<script>
+        menuBtn = document.getElementById('menuBtn')
+        menu = document.getElementById('menu')
+        sideNav = document.getElementById('sideNav')
+
+        menuBtn.onclick = function () {
+            if (sideNav.style.left == "-250px") {
+                sideNav.style.left = "0"
+                menu.src = "image/close.png"
+            } else {
+                sideNav.style.left = "-250px"
+                menu.src = "image/menu.png"
+            }
+        }
+
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 1000,
+            speedAsDuration: true
+        })
+</script>
+<script>
+        const loginBtn = document.getElementById('loginBtn');
+        const loginForm = document.getElementById('loginForm');
+
+        loginBtn.onclick = function () {
+            if (loginForm.style.display === "block") {
+                loginForm.style.display = "none";
+            } else {
+                loginForm.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target !== loginBtn && event.target !== loginForm) {
+                loginForm.style.display = "none";
+            }
+        }
+  </script>
+</body>
+</html>
