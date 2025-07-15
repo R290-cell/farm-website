@@ -31,19 +31,249 @@ body {
   background-color: #1e1e1e;
   color: #fff;
 }
-
+/* =============== HEADER ================= */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 7%;
+  background: #f8f8f8;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--white);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.logo img:hover { transform: scale(1.1); }
+
+.logo h1 { font-size: 1.6rem; color: #388e3c; font-weight: bold; }
+.logo h1 span { color: #4CAF50; }
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar a:hover { color: #4CAF50; }
+
+.dark-toggle {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+.dark-toggle:hover { background: #388e3c; }
+
+/* =============== 9 DOT MENU ================= */
+.menu-container {
+  position: relative;
+}
+
+.dot-menu {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3px;
+  cursor: pointer;
+}
+.dot-menu span {
+  width: 6px;
+  height: 6px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.apps-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 160px;
+}
+.apps-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+.apps-menu a:hover { color: #4CAF50; }
+.apps-menu img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Show apps menu when active */
+.menu-container.active .apps-menu { display: block; }
+
+/* =============== MOBILE RESPONSIVE ================= */
+#menu-btn {
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    display: none;
+    padding: 15px 0;
+  }
+  .navbar.active { display: flex; }
+
+  #menu-btn { display: block; }
+
+  .menu-container { display: none; } /* Hide 9-dot menu on small screens */
+}
+/* FULL BACKGROUND HERO BANNER */
+.home {
+  width: 100vw;
+  height: 100vh; /* Full screen height */
+  background: url("image/banner-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Dark overlay for better text readability */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.home-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeSlideUp 1.2s ease-out forwards;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+.home-content h1 span {
+  color: #4CAF50;
+}
+
+.home-content p {
+  margin: 15px 0;
+  font-size: 1.3rem;
+  color: #ddd;
+  animation: fadeSlideUp 1.4s ease-out forwards;
+}
+
+.home-content .btn {
+  background: #4CAF50;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: inline-block;
+  animation: fadeSlideUp 1.6s ease-out forwards;
+}
+
+.home-content .btn:hover {
+  background: #388e3c;
+  animation: bounce 0.5s;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .home-content h1 {
+    font-size: 2.2rem;
+  }
+  .home-content p {
+    font-size: 1rem;
+  }
+}
+.dark-toggle {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.dark-toggle:hover {
+  background: #388e3c;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar a {
+  font-size: 1rem;
+  color: var(--black);
+  font-weight: 500;
+  transition: var(--transition);
+}
 .logo {
   font-size: 1.5rem;
   color: var(--green);

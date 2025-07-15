@@ -155,4 +155,32 @@ function sendMessage() {
   messageInput.value = "";
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
+// Mobile Hamburger Menu
+const menuBtn = document.getElementById("menu-btn");
+const navbar = document.getElementById("navbar");
 
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+// 9-Dot Apps Menu
+const dotMenu = document.getElementById("dotMenu");
+const menuContainer = document.querySelector(".menu-container");
+
+dotMenu.addEventListener("click", () => {
+  menuContainer.classList.toggle("active");
+});
+document.getElementById("payment-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const method = document.querySelector('input[name="method"]:checked').value;
+    
+    // Here you would typically handle the payment processing logic
+    // For this example, we will just alert the user
+    alert(`Payment Details:
+    Name: ${name}
+    Email: ${email}
+    Payment Method: ${method}`);
+});
