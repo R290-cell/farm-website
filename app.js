@@ -1,119 +1,158 @@
-// Get DOM elements
-const searchBtn = document.querySelector('#search-btn');
-const cartBtn = document.querySelector('#cart-btn');
-const loginBtn = document.querySelector('#login-btn');
-const menuBtn = document.querySelector('#menu-btn');
-const searchForm = document.querySelector('.search-form');
-const shoppingCart = document.querySelector('.shopping-cart');
-const loginForm = document.querySelector('.login-form');
-const navbar = document.querySelector('.navbar');
+// ============ DARK MODE TOGGLE ============
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+}
 
-// Toggle search form
-searchBtn.onclick = () => {
-    searchForm.classList.toggle('active');
-    shoppingCart.classList.remove('active');
-    loginForm.classList.remove('active');
-    navbar.classList.remove('active');
-};
+// ============ CART LOGIC ============
+let cart = [];
 
-// Toggle cart box
-cartBtn.onclick = () => {
-    shoppingCart.classList.toggle('active');
-    searchForm.classList.remove('active');
-    loginForm.classList.remove('active');
-    navbar.classList.remove('active');
-};
+function updateCart() {
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotalElement = document.getElementById("cart-total");
+  const dropdownCartTotal = document.querySelector(".shopping-cart .total");
+  cartItemsContainer.innerHTML = "";
 
-// Toggle login form
-loginBtn.onclick = () => {
-    loginForm.classList.toggle('active');
-    searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-    navbar.classList.remove('active');
-};
+  let total = 0;
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      ${item.name} - $${item.price} x ${item.quantity}
+      <button class="remove-btn" data-index="${index}">❌</button>
+    `;
+    cartItemsContainer.appendChild(li);
+    total += item.price * item.quantity;
+  });
 
-// Toggle navbar
-menuBtn.onclick = () => {
-    navbar.classList.toggle('active');
-    searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-    loginForm.classList.remove('active');
-};
+  cartTotalElement.textContent = total.toFixed(2);
+  if (dropdownCartTotal) dropdownCartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
-// Hide all when scrolling
-window.onscroll = () => {
-    searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
-    loginForm.classList.remove('active');
-    navbar.classList.remove('active');
-};
+  // Add event listeners to remove buttons
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const index = this.dataset.index;
+      cart.splice(index, 1);
+      updateCart();
+    });
+  });
+}
 
-var swiper = new Swiper(".product-slider", {
-    loop:true,
-    spaceBetween: 20,
-    autoplay: {
-        delay: 7500,
-        disableOnInteraction: false,
-    },
-    centeredSlides: true,
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1020: {
-        slidesPerView: 3,
-      },
-    },
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const name = this.dataset.name;
+    const price = parseFloat(this.dataset.price);
+
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+    updateCart();
+    alert(`${name} added to cart!`);
+  });
 });
 
-var swiper2 = new Swiper(".review-slider", {
-    loop:true,
-    spaceBetween: 20,
-    autoplay: {
-        delay: 7500,
-        disableOnInteraction: false,
-    },
-    centeredSlides: true,
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1020: {
-        slidesPerView: 3,
-      },
-    },
-});
+// ============ PAYMENT MODAL ============
+const paymentModal = document.getElementById("payment-modal");
+const placeOrderBtn = document.getElementById("place-order-btn");
+const closeModalBtn = document.querySelector(".close-btn");
+const payAmountInput = document.getElementById("pay-amount");
 
-const themeToggle = document.getElementById('theme-toggle');
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-
-  // Change icon between moon and sun
-  if (document.body.classList.contains('dark-mode')) {
-    themeToggle.classList.remove('fa-moon');
-    themeToggle.classList.add('fa-sun');
-  } else {
-    themeToggle.classList.remove('fa-sun');
-    themeToggle.classList.add('fa-moon');
+placeOrderBtn.addEventListener("click", () => {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
   }
-
-  // Optional: Save preference in localStorage
-  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  payAmountInput.value = total.toFixed(2);
+  paymentModal.style.display = "flex";
 });
 
-// On load, apply preference
-document.addEventListener('DOMContentLoaded', () => {
-  const darkMode = JSON.parse(localStorage.getItem('darkMode'));
-  if (darkMode) {
-    document.body.classList.add('dark-mode');
-    themeToggle.classList.remove('fa-moon');
-    themeToggle.classList.add('fa-sun');
+closeModalBtn.addEventListener("click", () => {
+  paymentModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === paymentModal) {
+    paymentModal.style.display = "none";
   }
 });
+
+function completePayment() {
+  alert("Payment successful! Thank you for shopping with AGRIVIQ ENTERPRISES.");
+  cart = [];
+  updateCart();
+  paymentModal.style.display = "none";
+}
+
+// ============ SWIPER SLIDER ============
+const swiper = new Swiper(".review-slider", {
+  loop: true,
+  autoplay: { delay: 3000, disableOnInteraction: false },
+  slidesPerView: 1,
+  spaceBetween: 20,
+  breakpoints: {
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  }
+});
+
+// ============ TOGGLE SEARCH, LOGIN, CART DROPDOWN ============
+const searchBtn = document.getElementById("search-btn");
+const searchForm = document.querySelector(".search-form");
+const loginBtn = document.getElementById("loginBtn");
+const loginForm = document.querySelector(".login-form");
+const cartBtn = document.getElementById("cart-btn");
+const cartDropdown = document.querySelector(".shopping-cart");
+
+searchBtn.addEventListener("click", () => {
+  searchForm.style.display = searchForm.style.display === "block" ? "none" : "block";
+  loginForm.style.display = "none";
+  cartDropdown.style.display = "none";
+});
+
+loginBtn.addEventListener("click", () => {
+  loginForm.style.display = loginForm.style.display === "block" ? "none" : "block";
+  searchForm.style.display = "none";
+  cartDropdown.style.display = "none";
+});
+
+cartBtn.addEventListener("click", () => {
+  cartDropdown.style.display = cartDropdown.style.display === "block" ? "none" : "block";
+  searchForm.style.display = "none";
+  loginForm.style.display = "none";
+});
+
+// Close forms on outside click
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".icons") && !e.target.closest(".search-form") && !e.target.closest(".login-form") && !e.target.closest(".shopping-cart")) {
+    searchForm.style.display = "none";
+    loginForm.style.display = "none";
+    cartDropdown.style.display = "none";
+  }
+});
+
+// ============ CHAT INPUT (Placeholder Logic) ============
+const messagesDiv = document.getElementById("messages");
+const messageInput = document.getElementById("messageInput");
+
+function sendMessage() {
+  const message = messageInput.value.trim();
+  if (!message) return;
+  const userMessage = document.createElement("div");
+  userMessage.textContent = "You: " + message;
+  messagesDiv.appendChild(userMessage);
+
+  // Simple bot response (Placeholder)
+  setTimeout(() => {
+    const botMessage = document.createElement("div");
+    botMessage.textContent = "Bot: Thanks for your message, we’ll respond soon!";
+    messagesDiv.appendChild(botMessage);
+  }, 1000);
+
+  messageInput.value = "";
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+

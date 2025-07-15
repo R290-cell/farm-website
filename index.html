@@ -3,48 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGRIVIQENTERPRICE</title>
+  <title>AGRIVIQ ENTERPRISES</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
+<linkrel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="header">
-    <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> AGRIVIQENTERPRICE</a>
-    <div class="fas fa-moon" id="theme-toggle" title="Toggle Dark Mode"></div>
+    <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> AGRIVIQ ENTERPRISES</a>
+    <button id="themeToggle" onclick="toggleDarkMode()" class="dark-toggle">🌙</button>
+
     <nav class="navbar">
       <a href="#home">home</a>
       <a href="#features">features</a>
+      <a href="#services">services</a>
       <a href="#products">products</a>
       <a href="#categories">categories</a>
       <a href="#review">review</a>
       <a href="#blogs">blogs</a>
+
+      <!-- 9 Dot Menu -->
+      <div class="menu-container">
+        <div class="dot-menu">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+        <div class="apps-menu">
+          <a href="#products"><img src="image/products-icon.png"><span>Products</span></a>
+          <a href="#services"><img src="image/services-icon.png"><span>Services</span></a>
+          <a href="#blogs"><img src="image/blogs-icon.png"><span>Blogs</span></a>
+          <a href="#cart"><img src="image/cart-icon.webp"><span>Cart</span></a>
+          <a href="#contact"><img src="image/contact-icon.webp"><span>Contact</span></a>
+          <a href="admin.html"><img src="image/admin-icon.webp"><span>Admin</span></a>
+        </div>
+      </div>
     </nav>
+
     <div class="icons">
       <div class="fas fa-bars" id="menu-btn"></div>
       <div class="fas fa-search" id="search-btn"></div>
       <div class="fas fa-shopping-cart" id="cart-btn"></div>
       <div class="fas fa-user" id="loginBtn"></div>
     </div>
+
+    <!-- Search -->
     <form action="" class="search-form">
       <input type="search" id="search-box" placeholder="search here...">
       <label for="search-box" class="fas fa-search"></label>
     </form>
-    <div class="shopping-cart">
-      <div class="box">
-        <i class="fas fa-trash"></i>
-        <img src="image/cart-img-1.png" alt="">
-        <div class="content">
-          <h3>watermelon</h3>
-          <span class="price">$4.99/-</span>
-          <span class="quantity">qty : 1</span>
-        </div>
-      </div>
-      <div class="total"> total : $19.69/- </div>
+
+    <!-- Shopping Cart -->
+    <div class="shopping-cart" id="cart-dropdown">
+      <div class="total"> total : $0.00 </div>
       <a href="#cart" class="btn">checkout</a>
     </div>
+
+    <!-- Login -->
     <form id="loginForm" class="login-form">
       <h3>login now</h3>
       <input type="email" placeholder="your email" class="box">
@@ -55,7 +75,7 @@
     </form>
   </header>
 
-  <!-- HOME SECTION -->
+  <!-- HOME -->
   <section class="home" id="home">
     <div class="content">
       <h1>Fresh and <span>organic</span> products for you</h1>
@@ -63,78 +83,71 @@
       <a href="#products" class="btn">Shop Now</a>
     </div>
   </section>
-  <section class="features" id="features">
-  <h2 class="heading">Our <span>Features</span></h2>
-  <div class="box-container">
-    <div class="box">
-      <img src="image/feature-img-1.png" alt="">
-      <h3>Fresh & Organic</h3>
-      <p>All our products are naturally grown without chemicals.</p>
-    </div>
-    <div class="box">
-      <img src="image/feature-img-2.png" alt="">
-      <h3>Free Delivery</h3>
-      <p>We deliver for free within Mombasa county and its environs.</p>
-    </div>
-    <div class="box">
-      <img src="image/feature-img-3.png" alt="">
-      <h3>Easy Payments</h3>
-      <p>Secure mobile and card payments supported.</p>
-    </div>
-  </div>
-</section>
-<section class="services" id="services">
-  <h2 class="heading">Our <span>Services</span></h2>
-  <div class="box-container">
-    <div class="box">
-      <div class="icon">
-        <img src="image/tractor.png" alt="Tractor Icon">
-      </div>
-      <h3>Farm Equipment Rental</h3>
-      <p>Affordable equipment leasing for smallholder farmers.</p>
-    </div>
-    <div class="box">
-      <div class="icon">
-        <img src="image/seedling.png" alt="Seedling Icon">
-      </div>
-      <h3>Agronomy Advice</h3>
-      <p>Expert crop guidance and support for healthy harvests.</p>
-    </div>
-    <div class="box">
-      <div class="icon">
-        <img src="image/logistics.png" alt="Logistics Icon">
-      </div>
-      <h3>Produce Delivery</h3>
-      <p>Safe and timely delivery of fresh produce to customers.</p>
-    </div>
-  </div>
-</section>
 
-  </div>
-</section>
-  <!-- CATEGORIES SECTION -->
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <h2 class="heading">Our <span>Features</span></h2>
+    <div class="box-container">
+      <div class="box">
+        <img src="image/feature-img-1.png" alt="">
+        <h3>Fresh & Organic</h3>
+        <p>All our products are naturally grown without chemicals.</p>
+      </div>
+      <div class="box">
+        <img src="image/feature-img-2.png" alt="">
+        <h3>Free Delivery</h3>
+        <p>We deliver for free within Mombasa county and its environs.</p>
+      </div>
+      <div class="box">
+        <img src="image/feature-img-3.png" alt="">
+        <h3>Easy Payments</h3>
+        <p>Secure mobile and card payments supported.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h2 class="heading">Our <span>Services</span></h2>
+    <div class="box-container">
+      <div class="box">
+        <img src="image/tractor.png" alt="Tractor Icon">
+        <h3>Farm Equipment Rental</h3>
+        <p>Affordable equipment leasing for smallholder farmers.</p>
+      </div>
+      <div class="box">
+        <img src="image/seedling.png" alt="Seedling Icon">
+        <h3>Agronomy Advice</h3>
+        <p>Expert crop guidance and support for healthy harvests.</p>
+      </div>
+      <div class="box">
+        <img src="image/logistics.png" alt="Logistics Icon">
+        <h3>Produce Delivery</h3>
+        <p>Safe and timely delivery of fresh produce to customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
   <section class="categories" id="categories">
     <h2 class="heading">Shop by <span>Categories</span></h2>
     <div class="box-container">
       <div class="box">
         <img src="image/cat-1.png" alt="Vegetables">
         <h3>Vegetables</h3>
-        <p>Fresh and organic vegetables sourced from local farms.</p>
       </div>
       <div class="box">
         <img src="image/cat-2.png" alt="Fruits">
         <h3>Fruits</h3>
-        <p>Seasonal fruits picked at their peak freshness.</p>
       </div>
       <div class="box">
         <img src="image/cat-3.png" alt="Dairy Products">
         <h3>Dairy Products</h3>
-        <p>Pure and natural dairy products from local dairies.</p>
       </div>
     </div>
+  </section>
 
-
-  <!-- PRODUCTS SECTION -->
+  <!-- PRODUCTS -->
   <section class="products" id="products">
     <h2 class="heading">Our <span>Products</span></h2>
     <div class="box-container">
@@ -144,7 +157,6 @@
         <div class="price">$4.99</div>
         <button class="btn add-to-cart" data-name="Tomatoes" data-price="4.99">Add to Cart</button>
       </div>
-      <div class="box-container">
       <div class="box">
         <img src="image/product-3.png" alt="Meat">
         <h3>Meat</h3>
@@ -157,52 +169,71 @@
         <div class="price">$4.99</div>
         <button class="btn add-to-cart" data-name="Cabbage" data-price="4.99">Add to Cart</button>
       </div>
-      <div class="box">
-        <img src="image/product-5.png" alt="Potatoes">
-        <h3>Potatoes</h3>
-        <div class="price">$4.99</div>
-        <button class="btn add-to-cart" data-name="Potatoes" data-price="4.99">Add to Cart</button>
-      </div>
-      <div class="box">
-        <img src="image/product-2.png" alt="Onions">
-        <h3>Onions</h3>
-        <div class="price">$4.99</div>
-        <button class="btn add-to-cart" data-name="Onions" data-price="4.99">Add to Cart</button>
-      </div>
-      <div class="box">
-        <img src="image/product-1.png" alt="Oranges">
-        <h3>Oranges</h3>
-        <div class="price">$4.99</div>
-        <button class="btn add-to-cart" data-name="Oranges" data-price="4.99">Add to Cart</button>
-      </div>
-      <!-- Add other product boxes similarly -->
-    </div>
-  </section>
+      <div class="box"><img src="image/product-1.png" alt="Oranges"><h3>Oranges</h3><div class="price">$4.99</div><button class="btn add-to-cart" data-name="Oranges" data-price="4.99">Add to Cart</button></div>
+    <div class="box"><img src="image/product-2.png" alt="Onions"><h3>Onions</h3><div class="price">$3.99</div><button class="btn add-to-cart" data-name="Onions" data-price="3.99">Add to Cart</button></div>
+    <div class="box"><img src="image/product-3.png" alt="Meat"><h3>Meat</h3><div class="price">$9.99</div><button class="btn add-to-cart" data-name="Meat" data-price="9.99">Add to Cart</button></div>
+    <div class="box"><img src="image/product-4.png" alt="Cabbage"><h3>Cabbage</h3><div class="price">$2.49</div><button class="btn add-to-cart" data-name="Cabbage" data-price="2.49">Add to Cart</button></div>
+    <div class="box"><img src="image/product-5.png" alt="Potatoes"><h3>Potatoes</h3><div class="price">$3.50</div><button class="btn add-to-cart" data-name="Potatoes" data-price="3.50">Add to Cart</button></div>
+    <div class="box"><img src="image/product-6.png" alt="Avocado"><h3>Avocado</h3><div class="price">$5.20</div><button class="btn add-to-cart" data-name="Avocado" data-price="5.20">Add to Cart</button></div>
 
-  <!-- REVIEW SECTION -->
-  <section class="review" id="review">
-    <h2 class="heading">Customer <span>Reviews</span></h2>
-    <div class="swiper review-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide review-box">
-          <img src="image/image11.jpg" alt="Joylene">
-          <h3>Joylene Wakesho</h3>
-          <p>Fresh and delicious veggies. Highly recommend!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-          </div>
-        </div>
+    <!-- NEW Products -->
+    <div class="box"><img src="image/fresh milk.jpeg" alt="Milk"><h3>Fresh Milk</h3><div class="price">$2.99</div><button class="btn add-to-cart" data-name="Fresh Milk" data-price="2.99">Add to Cart</button></div>
+    <div class="box"><img src="image/chesse.jpg" alt="Cheese"><h3>Cheese</h3><div class="price">$6.99</div><button class="btn add-to-cart" data-name="Cheese" data-price="6.99">Add to Cart</button></div>
+    <div class="box"><img src="image/strawberries.jpg" alt="Strawberries"><h3>Strawberries</h3><div class="price">$7.49</div><button class="btn add-to-cart" data-name="Strawberries" data-price="7.49">Add to Cart</button></div>
+    <div class="box"><img src="image/organic honey.jpg" alt="Honey"><h3>Organic Honey</h3><div class="price">$8.99</div><button class="btn add-to-cart" data-name="Organic Honey" data-price="8.99">Add to Cart</button></div>
+    <div class="box"><img src="image/free range eggs.jpg" alt="Eggs"><h3>Free-range Eggs</h3><div class="price">$4.20</div><button class="btn add-to-cart" data-name="Free-range Eggs" data-price="4.20">Add to Cart</button></div>
+    <div class="box"><img src="image/mangoes.jpg" alt="Mangoes"><h3>Mangoes</h3><div class="price">$5.99</div><button class="btn add-to-cart" data-name="Mangoes" data-price="5.99">Add to Cart</button></div>
+  </div>
+</section>
+  <section class="reviews" id="reviews">
+  <h2 class="heading">Customer <span>Reviews</span></h2>
+  
+  <div class="review-container">
+    <!-- Review 1 -->
+    <div class="review-card">
+      <img src="image/pic-2.png" alt="Customer 1">
+      <h3>Mary Wanjiku</h3>
+      <div class="stars">
+        ★★★★☆
       </div>
+      <p>"I love how fresh the vegetables are! AGRIVIQ Enterprises has never disappointed me. Highly recommended!"</p>
     </div>
-  </section>
-  <section class="blogs" id="blogs">
+
+    <!-- Review 2 -->
+    <div class="review-card">
+      <img src="image/pic-3.png" alt="Customer 2">
+      <h3>John Otieno</h3>
+      <div class="stars">
+        ★★★★★
+      </div>
+      <p>"Fast delivery and excellent customer service. I’ll definitely order again!"</p>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="review-card">
+      <img src="image/pic-4.png" alt="Customer 3">
+      <h3>Amina Yusuf</h3>
+      <div class="stars">
+        ★★★★☆
+      </div>
+      <p>"Great variety of farm products at affordable prices. Keep it up!"</p>
+    </div>
+    <!-- Swiper Pagination & Navigation -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  </div>
+</section>
+
+<section class="blogs" id="blogs">
   <h2 class="heading">Our <span>Blogs</span></h2>
   <div class="box-container">
     <div class="box">
       <img src="image/blog1.jpg" alt="">
       <div class="content">
         <h3>Top 5 Vegetables to Grow in Kenya</h3>
-        <p>Discover high-yield crops that are climate friendly and profitable.</p>
+        <p>Discover high-yield crops that are climate-friendly and profitable.</p>
         <a href="#" class="btn">Read More</a>
       </div>
     </div>
@@ -222,11 +253,37 @@
         <a href="#" class="btn">Read More</a>
       </div>
     </div>
+
+    <!-- NEW Blogs -->
+    <div class="box">
+      <img src="image/blog4.jpg" alt="">
+      <div class="content">
+        <h3>Best Practices for Dairy Farming</h3>
+        <p>How to ensure healthy cows and high milk production.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="image/blog5.jpg" alt="">
+      <div class="content">
+        <h3>Profitable Fruits for Small Farmers</h3>
+        <p>Maximize income with these easy-to-grow fruit varieties.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="image/blog6.jpg" alt="">
+      <div class="content">
+        <h3>Water-Saving Techniques in Agriculture</h3>
+        <p>Conserve water with these irrigation and soil methods.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-
-  <!-- CART SECTION -->
+  <!-- CART -->
   <section class="cart" id="cart">
     <h2>Your Cart</h2>
     <ul id="cart-items"></ul>
@@ -234,50 +291,136 @@
     <button id="place-order-btn" class="btn">Proceed to Payment</button>
   </section>
 
-  <!-- PAYMENT MODAL -->
-  <div id="payment-modal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h3>Enter Payment Details</h3>
-      <input type="text" placeholder="Card / M-Pesa Number" class="box">
-      <input type="text" placeholder="Full Name" class="box">
-      <input type="text" placeholder="Amount" id="pay-amount" class="box" readonly>
-      <button class="btn" onclick="completePayment()">Pay Now</button>
-    </div>
-    <div id="chat-box">
-  <div id="messages"></div>
-  <input type="text" id="messageInput" placeholder="Type your message..." />
-  <button onclick="sendMessage()">Send</button>
+  <!-- Payment Button (Trigger Modal) -->
+<button id="open-payment-btn">Proceed to Payment</button>
+
+<!-- Payment Modal -->
+<div id="payment-modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-payment-btn">&times;</span>
+    <h2>Complete Your Payment</h2>
+
+    <form id="payment-form">
+      <input type="text" id="customer-name" placeholder="Full Name" required>
+      <input type="email" id="customer-email" placeholder="Email Address" required>
+      
+      <select id="payment-method" required>
+        <option value="">Select Payment Method</option>
+        <option value="paypal">PayPal</option>
+        <option value="mpesa">M-Pesa</option>
+        <option value="bank">Bank Transfer</option>
+      </select>
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
 </div>
+<footer class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="#home"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="#features"><i class="fas fa-arrow-right"></i> Features</a>
+      <a href="#services"><i class="fas fa-arrow-right"></i> Services</a>
+      <a href="#products"><i class="fas fa-arrow-right"></i> Products</a>
+      <a href="#review"><i class="fas fa-arrow-right"></i> Reviews</a>
+      <a href="#blogs"><i class="fas fa-arrow-right"></i> Blogs</a>
+      <a href="#cart"><i class="fas fa-arrow-right"></i> Cart</a>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="box">
+      <h3>Contact Info</h3>
+      <p><i class="fas fa-phone"></i> +254-726-648-434</p>
+      <p><i class="fas fa-envelope"></i> agriviq@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Mombasa, Kenya</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="box">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/254114456168" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="box-container">
-      <div class="box">
-        <h3>Quick Links</h3>
-        <a href="#home"><i class="fas fa-arrow-right"></i> Home</a>
-        <a href="#products"><i class="fas fa-arrow-right"></i> Products</a>
-        <a href="#review"><i class="fas fa-arrow-right"></i> Reviews</a>
-        <a href="#blogs"><i class="fas fa-arrow-right"></i> Blogs</a>
-        <a href="#cart"><i class="fas fa-arrow-right"></i> Cart</a>
-
-      </div>
-      <div class="box">
-        <h3>Contact Info</h3>
-        <p><i class="fas fa-phone"></i> +254-732-555-912</p>
-        <p><i class="fas fa-envelope"></i> victormwambacha@hotmail.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> Mombasa, Kenya</p>
-      </div>
-    </div>
-    <div class="credit"> created by <span> Rose Wali Mwambacha </span> | all rights reserved </div>
-  </footer>
+  <div class="credit">
+    created by <span>Rose Wali Mwambacha</span> | all rights reserved
+  </div>
+</footer>
 
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16/dist/smooth-scroll.polyfills.min.js"></script>
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
   <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <script>
+  var swiper = new Swiper(".review-slider", {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+  });
+</script>
+<script>
+  // Get Elements
+  const paymentModal = document.getElementById("payment-modal");
+  const openPaymentBtn = document.getElementById("open-payment-btn");
+  const closePaymentBtn = document.getElementById("close-payment-btn");
+  const paymentForm = document.getElementById("payment-form");
+
+  // Open Modal
+  openPaymentBtn.addEventListener("click", () => {
+    paymentModal.style.display = "flex";
+  });
+
+  // Close Modal (X button)
+  closePaymentBtn.addEventListener("click", () => {
+    paymentModal.style.display = "none";
+  });
+
+  // Close Modal (Click outside content)
+  window.addEventListener("click", (e) => {
+    if (e.target === paymentModal) {
+      paymentModal.style.display = "none";
+    }
+  });
+
+  // Handle Payment Form Submit
+  paymentForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("customer-name").value;
+    const email = document.getElementById("customer-email").value;
+    const method = document.getElementById("payment-method").value;
+
+    alert(`Payment Successful!\n\nName: ${name}\nEmail: ${email}\nMethod: ${method}`);
+
+    paymentModal.style.display = "none";
+  });
+
+
+</script>
 </body>
 </html>
